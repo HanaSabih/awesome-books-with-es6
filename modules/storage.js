@@ -1,59 +1,41 @@
-/* eslint-disable max-classes-per-file */
-export default class Storage {
-  static addTodStorage(arrBooks) {
-    const storage = localStorage.setItem('book', JSON.stringify(arrBooks));
-    return storage;
-  }
+import { cardsContainer, bookTitle, bookAuthor } from './variables.js';
 
-  static getStorage() {
-    const storage = localStorage.getItem('book') === null
-      ? []
-      : JSON.parse(localStorage.getItem('book'));
-    return storage;
-  }
-}
-/* eslint-disable import/no-mutable-exports */
+const addTodStorage = (arrBooks) => {
+  const storage = localStorage.setItem('book', JSON.stringify(arrBooks));
+  return storage;
+};
+
+const getStorage = () => {
+  const storage = localStorage.getItem('book') === null
+    ? []
+    : JSON.parse(localStorage.getItem('book'));
+  return storage;
+};
 
 // array
-let arrBooks = Storage.getStorage();
-const cardsContainer = document.querySelector('#cards');
-const bookTitle = document.querySelector('#title');
-const bookAuthor = document.querySelector('#author');
+let arrBooks = getStorage();
 
-export class Card {
-  static displayBook() {
-    const displayBook = arrBooks.map(
-      (item) => `
-        <tr id="tr${item.id}" class="trIndex">
-        <td class="text-start"><span>"${item.title}"  By  ${item.author}</span></td>
-        <td class="text-end"><button class="btn btn-secondary remove " data-id="${item.id}">remove</button></td>
-      </tr>`,
-    );
-    cardsContainer.innerHTML = displayBook.join(' ');
-  }
+const clearInputs = () => {
+  bookTitle.value = '';
+  bookAuthor.value = '';
+};
 
-  static clearInputs() {
-    bookTitle.value = '';
-    bookAuthor.value = '';
-  }
+const removeBookFromArr = (id) => {
+  arrBooks = arrBooks.filter((item) => item.id !== +id);
+  addTodStorage(arrBooks);
+};
 
-  static removeBook() {
-    cardsContainer.addEventListener('click', (e) => {
-      const bookId = e.target.dataset.id;
-      if (e.target.classList.contains('remove')) {
-        document.querySelector(`#tr${bookId}`).remove();
-      }
+const removeBook = () => {
+  cardsContainer.addEventListener('click', (e) => {
+    const bookId = e.target.dataset.id;
+    if (e.target.classList.contains('remove')) {
+      e.target.parentElement.parentElement.remove();
+    }
 
-      Card.removeBookFromArr(bookId);
-    });
-  }
+    removeBookFromArr(bookId);
+  });
+};
 
-  static removeBookFromArr(id) {
-    arrBooks = arrBooks.filter((item) => item.id !== +id);
-    Storage.addTodStorage(arrBooks);
-  }
-}
-
-export { bookTitle, bookAuthor };
-
-export { arrBooks };
+export {
+  addTodStorage, getStorage, removeBook, arrBooks, clearInputs,
+};
