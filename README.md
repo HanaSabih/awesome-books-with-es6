@@ -176,3 +176,9 @@ Feel free to check the [issues page](../../issues/).
 If you like this project, kindly give a ⭐️.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- LICENSE -->
+
+## 📝 License <a name="license"></a>
+
+This project is [MIT](https://github.com/HanaSabih/awesome-books-with-es6/blob/awesome-es6/MIT.md) licensed.
