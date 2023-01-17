@@ -1,6 +1,5 @@
-/* eslint-disable no-unused-vars */
 // object books
-export default class Books {
+export default class {
   constructor(id = 0, title, author) {
     this.id = id;
     this.title = title;
