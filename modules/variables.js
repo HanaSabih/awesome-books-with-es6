@@ -1,0 +1,11 @@
+export const form = document.querySelector('#form');
+export const warningLabel = document.querySelector('.warningLabel');
+export const booksList = document.querySelector('.books-list');
+export const addNew = document.querySelector('.add-new');
+export const contact = document.querySelector('.contact');
+export const navlist = document.querySelector('.navlist');
+export const navadd = document.querySelector('.navadd');
+export const navcontact = document.querySelector('.navcontact');
+export const cardsContainer = document.querySelector('#cards');
+export const bookTitle = document.querySelector('#title');
+export const bookAuthor = document.querySelector('#author');
