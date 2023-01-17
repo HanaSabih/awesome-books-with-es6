@@ -1,3 +1,5 @@
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-mutable-exports */
 import { cardsContainer, bookTitle, bookAuthor } from './variables.js';
 
 const addTodStorage = (arrBooks) => {
