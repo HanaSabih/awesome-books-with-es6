@@ -1,3 +1,4 @@
+/* eslint-disable import/extensions */
 import { cardsContainer } from './variables.js';
 import { arrBooks } from './storage.js';
 
@@ -11,4 +12,4 @@ const displayBook = () => {
   );
   cardsContainer.innerHTML = displayBook.join(' ');
 };
-export { displayBook };
+export default { displayBook };
